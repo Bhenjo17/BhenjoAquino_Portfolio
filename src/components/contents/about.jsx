@@ -145,8 +145,7 @@ const AboutPage = () => {
               About Me
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-              Detail-oriented Full-Stack Developer with experience in web development, graphic design, and administrative support. 
-              Skilled in front-end and back-end development, database management, and system integration. 
+           I am a detail-oriented Full-Stack Developer with a strong foundation in web development, graphic design, and administrative support, allowing me to approach projects with both technical expertise and creative insight. I have hands-on experience in building responsive and user-friendly web applications, working confidently with both front-end and back-end technologies to deliver efficient, scalable, and secure systems. My skill set includes database management, system integration, and optimizing application performance to ensure smooth and reliable operations. Beyond coding, my background in graphic design helps me create visually appealing and intuitive interfaces, while my administrative experience strengthens my organizational skills, documentation practices, and ability to manage multiple tasks effectively. I am highly adaptable, quick to learn new technologies, and committed to continuous improvement, ensuring that every project I handle is completed with accuracy, innovation, and a focus on delivering real value to users and stakeholders.
             </p>
           </motion.section>
 
