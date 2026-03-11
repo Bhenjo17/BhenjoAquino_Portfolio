@@ -107,7 +107,7 @@ const ProjectsPage = () => {
                 alt={project.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80" />
               
               {/* Tech Tags on Image */}
               <div className="absolute bottom-6 left-6 flex flex-wrap gap-2">
