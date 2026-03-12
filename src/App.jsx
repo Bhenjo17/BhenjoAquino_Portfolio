@@ -12,10 +12,11 @@ import React, { useState, useEffect } from "react";
   import ProjectsPage from "./components/contents/project";
 
   // Media Imports
-  import resumeFile from "./assets/resume/aquino_resume.pdf"; 
+  import resumeFile from "./assets/resume/bhenjo_advincula_aquino_resume.pdf"; 
   import backgroundVideo from "./assets/video/background_video.mp4";
   import loadingAppImg from "./assets/image/loading_app.png";
   import paragonImg from "./assets/image/paragon_system.png";
+  import repairImg from "./assets/image/repair_system.png";
   import carwashImg from "./assets/image/carwash_system.png";
   import fosImg from "./assets/image/fos_system.png";
   import RegisterImg from "./assets/image/registration_system.png";
@@ -44,35 +45,22 @@ import React, { useState, useEffect } from "react";
   };
 
   const App = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(() => {
+      // initializer reads persisted theme or falls back to system preference
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved === 'dark';
+
+      const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+      return prefersDark;
+    });
     const [activeTab, setActiveTab] = useState("dashboard");
     const [loading, setLoading] = useState(true);
     const [isResumeOpen, setIsResumeOpen] = useState(false);
 
-    // Apply dark class to html element
-    useEffect(() => {
-      const htmlElement = document.documentElement;
-      if (darkMode) {
-        htmlElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        htmlElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    }, [darkMode]);
-
-    // Load saved theme on mount
-    useEffect(() => {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      setDarkMode(savedTheme === 'dark');
-    }, []);
-
+    // whenever darkMode changes update html class and persist setting
     useEffect(() => {
       document.documentElement.classList.toggle('dark', darkMode);
-    }, [darkMode]);
-
-    useEffect(() => {
-      localStorage.setItem("darkMode", JSON.stringify(darkMode));
+      localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
 
     useEffect(() => {
@@ -82,10 +70,11 @@ import React, { useState, useEffect } from "react";
     }, [activeTab]);
 
     const projects = [
+         { title: "S2S Loading App System", category: "Product Design", image: loadingAppImg, link: "https://s2sinternet.paragoncorp.com.ph/" },
+           { title: "Paragon Management System", category: "Full Stack", image: paragonImg, link: "https://paragoncorpmms.com/Paragon_MS/login" },
+              { title: "Repair Management Monitoring System", category: "Full Stack", image: repairImg, link: "https://repair.paragoncorpmms.com/auth/login.php" },
       { title: "Online Registration Management System", category: "Full Stack Development", image: RegisterImg, link: "#", tag: "Latest" },
       { title: "AI Fraud Detection Online Booking", category: "AI & Full Stack", image: fosImg, link: "#" },
-      { title: "S2S Loading App System", category: "Product Design", image: loadingAppImg, link: "https://s2sinternet.paragoncorp.com.ph/" },
-      { title: "Paragon Management System", category: "Full Stack", image: paragonImg, link: "https://paragoncorpmms.com/Paragon_MS/login" },
       { title: "Carwash Location System", category: "Web Application", image: carwashImg, link: "#" },
     ];
 
