@@ -11,9 +11,7 @@ import {
 } from "lucide-react";
 
 // Import PDFs
-import dataPrivacy from "../../assets/certificate/data_privacy.pdf";
-import wordpress from "../../assets/certificate/word_press.pdf";
-import virtualbox from "../../assets/certificate/virtual_formmating.pdf";
+
 
 const AchievementsPage = () => {
   // State to handle which PDF is currently being viewed in the modal
@@ -43,7 +41,7 @@ const AchievementsPage = () => {
       date: "2023"
     }
   ];
-  
+
   return (
     <div className="relative min-h-screen p-6 md:p-12 space-y-10 bg-slate-50 dark:bg-slate-950">
       <header>
