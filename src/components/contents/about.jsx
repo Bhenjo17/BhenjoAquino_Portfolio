@@ -55,39 +55,43 @@ const AboutPage = () => {
 
           <div className="px-6 md:px-10 pb-8 flex flex-col md:flex-row items-center md:items-end -mt-20 md:-mt-24 gap-6 relative z-10">
             
-            {/* ANIMATED PROFILE IMAGE SWAP */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="relative group"
-            >
-              <div className="absolute -inset-2 bg-green-500 rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-              
-              <motion.div 
-                className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-slate-900 overflow-hidden shadow-2xl cursor-pointer bg-slate-200"
-                whileHover="hover"
-              >
-                <img 
-                  src={cartoon} 
-                  alt="Cartoon Version" 
-                  className="absolute inset-0 w-full h-full object-cover" 
-                />
-                <motion.img 
-                  src={profile} 
-                  alt="Graduate Version" 
-                  className="absolute inset-0 w-full h-full object-cover z-10"
-                  variants={{
-                    hover: { 
-                      opacity: 0, 
-                      scale: 1.1,
-                      transition: { duration: 0.4, ease: "easeInOut" }
-                    }
-                  }}
-                />
-              </motion.div>
-            </motion.div>
+          {/* ANIMATED PROFILE IMAGE SWAP */}
+<motion.div 
+  initial={{ y: 20, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ delay: 0.3 }}
+  className="relative group"
+>
+  {/* Hover Glow Effect */}
+  <div className="absolute -inset-2 bg-green-500 rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+  
+  <motion.div 
+    className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-slate-900 overflow-hidden shadow-2xl cursor-pointer bg-slate-200"
+    whileHover="hover"
+  >
+    {/* 1. CARTOON (The Background/Default Image) */}
+    <img 
+      src={cartoon} 
+      alt="Cartoon Version" 
+      className="absolute inset-0 w-full h-full object-cover" 
+    />
 
+    {/* 2. PROFILE (The Hover Image - Fades IN) */}
+    <motion.img 
+      src={profile} 
+      alt="Graduate Version" 
+      className="absolute inset-0 w-full h-full object-cover z-10"
+      initial={{ opacity: 0 }} // Hidden by default
+      variants={{
+        hover: { 
+          opacity: 1, // Becomes visible on hover
+          scale: 1.05,
+          transition: { duration: 0.4, ease: "easeInOut" }
+        }
+      }}
+    />
+  </motion.div>
+</motion.div>
             <div className="flex-1 text-center md:text-left">
               <motion.h1 
                 initial={{ opacity: 0, x: -20 }}

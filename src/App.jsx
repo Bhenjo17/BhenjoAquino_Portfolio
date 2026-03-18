@@ -10,6 +10,7 @@ import {
 import Sidebar from "./components/sidebar/menubar";
 import AboutPage from "./components/contents/about"; 
 import ProjectsPage from "./components/contents/project";
+import AchievementsPage from "./components/contents/achievement"; // Added Achievement Import
 
 // Media Imports
 import resumeFile from "./assets/resume/bhenjo_advincula_aquino_resume.pdf"; 
@@ -58,13 +59,15 @@ const App = () => {
 
   // 2. Synchronize Theme with HTML class and LocalStorage
   useEffect(() => {
-  const root = window.document.documentElement; // This selects the <html> tag
-  if (darkMode) {
-    root.classList.add('dark');
-  } else {
-    root.classList.remove('dark');
-  }
-}, [darkMode]);
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
 
   // Preloader Logic per tab change
   useEffect(() => {
@@ -145,7 +148,6 @@ const App = () => {
               <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
                 <source src={backgroundVideo} type="video/mp4" />
               </video>
-              {/* Corrected gradient to blend with dark mode background */}
               <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-white dark:to-slate-950" />
               
               <motion.div 
@@ -233,6 +235,12 @@ const App = () => {
           {activeTab === "about" && (
             <motion.div key="about" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
               <AboutPage />
+            </motion.div>
+          )}
+          {/* NEW SECTION: ACHIEVEMENTS */}
+          {activeTab === "certificates" && (
+            <motion.div key="certificates" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+              <AchievementsPage />
             </motion.div>
           )}
         </AnimatePresence>
