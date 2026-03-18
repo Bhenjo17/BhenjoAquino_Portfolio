@@ -1,13 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: 'class',            // ← enable toggling with a `.dark` class
+export default {
+  darkMode: 'class', // <--- THIS IS THE KEY. It must say 'class'
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",   // ← make sure Tailwind scans your React code
-    // other paths you need…
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}
