@@ -24,25 +24,26 @@ const AchievementsPage = () => {
       title: "PARAGON - DATA PRIVACY ACT",
       org: "Paragon Corp",
       icon: <ShieldCheck className="text-blue-500" />,
-      file: dataPrivacy,
+      // Tumuturo ito sa public/certificate/data_privacy.pdf
+      file: "/certificate/data_privacy.pdf", 
       date: "2024"
     },
     {
       title: "Web Development (WordPress)",
       org: "Professional Training",
       icon: <Globe className="text-green-500" />,
-      file: wordpress,
+      file: "/certificate/word_press.pdf",
       date: "2023"
     },
     {
       title: "PC Formatting (VirtualBox)",
       org: "IT Skills Workshop",
       icon: <Monitor className="text-purple-500" />,
-      file: virtualbox,
+      file: "/certificate/virtual_formmating.pdf",
       date: "2023"
     }
   ];
-
+  
   return (
     <div className="relative min-h-screen p-6 md:p-12 space-y-10 bg-slate-50 dark:bg-slate-950">
       <header>
