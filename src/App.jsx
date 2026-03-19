@@ -13,7 +13,7 @@ import ProjectsPage from "./components/contents/project";
 import AchievementsPage from "./components/contents/achievement"; // Added Achievement Import
 
 // Media Imports
-  const resumeFile = "/resume/bhenjo_advincula_aquino_resume.pdf";
+  const resumeFile = "./resume/bhenjo_advincula_aquino_resume.pdf";
 import backgroundVideo from "./assets/video/background_video.mp4";
 import loadingAppImg from "./assets/image/loading_app.png";
 import paragonImg from "./assets/image/paragon_system.png";
